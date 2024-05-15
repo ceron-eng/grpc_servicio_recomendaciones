@@ -23,7 +23,7 @@ class RecommendationService(recommendations_pb2_grpc.RecommendationServiceServic
         # Obtener recomendaciones usando la función importada
         #recommendations = generate_recommendation(analysis_str)
         recommendations = generate_recommendation(request.analysis)
-        return recommendations_pb2.RecommendationResponse(recommendations=[recommendations])
+        return recommendations_pb2.RecommendationResponse(tuit_id=request.tuit_id,recommendations=[recommendations])
 
 def serve():
     server = grpc.server(futures.ThreadPoolExecutor(max_workers=10))
