@@ -1,0 +1,21 @@
+syntax = "proto3";
+
+package recommendations;
+
+// Definición del servicio de recomendaciones
+service RecommendationService {
+  // Función para obtener recomendaciones basadas en análisis de tuits
+  rpc GetRecommendations (AnalysisResult) returns (RecommendationResponse);
+}
+
+// Mensaje que representa el resultado del análisis de un tuit
+message AnalysisResult {
+  string tuit_id = 1;
+  string analysis = 2;  // Los resultados del análisis, como el sentimiento, etc.
+}
+
+// Mensaje para la respuesta de recomendaciones
+message RecommendationResponse {
+  string tuit_id = 1;
+  repeated string recommendations = 2;  // Recomendaciones basadas en el análisis
+}
