@@ -3,7 +3,7 @@ from groq import Groq
 
 def generate_recommendation(analysis):
     
-    client = Groq(api_key="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")
+    client = Groq(api_key="Aquí ira tu api-key")
 
     try:
         completion = client.chat.completions.create(
